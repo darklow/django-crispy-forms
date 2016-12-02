@@ -628,7 +628,7 @@ def test_error_text_inline(settings):
     if settings.CRISPY_TEMPLATE_PACK == 'bootstrap3':
         help_class = 'help-block'
     elif settings.CRISPY_TEMPLATE_PACK == 'bootstrap4':
-        help_class = 'invalid-feedback'
+        help_class = 'form-control-feedback'
         help_tag_name = 'div'
 
     matches = re.findall(
@@ -698,7 +698,7 @@ def test_error_and_help_inline():
 
     # Check that help goes before error, otherwise CSS won't work
     help_position = html.find('<span id="hint_id_email" class="help-inline">')
-    error_position = html.find('<p id="error_1_id_email" class="invalid-feedback">')
+    error_position = html.find('<div id="error_1_id_email" class="form-control-feedback">')
     assert help_position < error_position
 
     # Viceversa
